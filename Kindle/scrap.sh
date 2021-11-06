@@ -1,8 +1,12 @@
 #!/bin/bash
+year=$(echo "$1" | cut -d "-" -f 1)
+mkdir -p "$year"
+if [ ! -f "The Economist $2.mobi" ];then
 
-sed -i "s/edition_date = None/edition_date = '$1'/" economist.recipe
+        sed  "s/edition_date = .*/edition_date = '$1'/" economist.recipe > "The Economist $2.recipe"
 
-ebook-convert economist.recipe .mobi --output-profile=kindle_pw3 --pubdate="$1" -vv --mobi-file-type=new --title="The Economist $2" --mobi-keep-original-images
+        ebook-convert "The Economist $2.recipe" .mobi --output-profile=kindle_pw3 --pubdate="$1" -vv --mobi-file-type=new --title="The Economist $2"
 
-sed -i "s/edition_date = '$1'/edition_date = None/" economist.recipe
-mv economist.mobi "The Economist $2.mobi"
+        rm "The Economist $2.recipe"
+        cp "The Economist $2.mobi" "$year"
+fi
