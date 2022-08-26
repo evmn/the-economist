@@ -23,7 +23,7 @@ for i in schedule_day:
 	day = i.strftime('%d')
 	date = i.strftime('%Y%m%d')
 	issue = 8766+weeks
-	if (int(month) != 12) or (int(day) < 25):
+	if ((int(month) != 12) or (int(day) < 25)) and not ((int(year) == 2022) and (int(month) == 8) and (int(day) == 6)):
 #	if (int(month) == 12) and (int(day) >= 24):
 #		weeks=weeks+0
 #	else:
