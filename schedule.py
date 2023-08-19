@@ -14,7 +14,7 @@ import pandas as pd
 #       http://audiocdn.economist.com/sites/default/files/AudioArchive/2012/20120804/Issue_8796_20120804_The_Economist_Full_edition.zip
 #       Issue_8796_20120804 is the first audio version I can download 2021-11-06
 
-schedule_day = pd.date_range('20120101','20221231',freq='W-SAT')
+schedule_day = pd.date_range('20120101','20231231',freq='W-SAT')
 weeks=0
 
 for i in schedule_day:
@@ -23,7 +23,7 @@ for i in schedule_day:
 	day = i.strftime('%d')
 	date = i.strftime('%Y%m%d')
 	issue = 8766+weeks
-	if ((int(month) != 12) or (int(day) < 25)) and not ((int(year) == 2022) and (int(month) == 8) and (int(day) == 6)):
+	if ((int(month) != 12) or (int(day) < 25)) and not ((int(year) >= 2022) and (int(month) == 8) and (int(day) <= 7)):
 #	if (int(month) == 12) and (int(day) >= 24):
 #		weeks=weeks+0
 #	else:
