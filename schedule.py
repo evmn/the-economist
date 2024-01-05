@@ -14,7 +14,7 @@ import pandas as pd
 #       http://audiocdn.economist.com/sites/default/files/AudioArchive/2012/20120804/Issue_8796_20120804_The_Economist_Full_edition.zip
 #       Issue_8796_20120804 is the first audio version I can download 2021-11-06
 
-schedule_day = pd.date_range('20120101','20231231',freq='W-SAT')
+schedule_day = pd.date_range('20120101','20241231',freq='W-SAT')
 weeks=0
 
 for i in schedule_day:
@@ -28,5 +28,7 @@ for i in schedule_day:
 #		weeks=weeks+0
 #	else:
 #		print(issue, date)
+#               print("./scrap.sh {0}-{1}-{2} {3}".format(year, month, day, issue))
 		print("http://audiocdn.economist.com/sites/default/files/AudioArchive/{0}/{2}/Issue_{1}_{2}_The_Economist_Full_edition.zip".format(year, issue, date))
+		#print("{2}|[{1}](http://audiocdn.economist.com/sites/default/files/AudioArchive/{0}/{2}/Issue_{1}_{2}_The_Economist_Full_edition.zip)".format(year, issue, date))
 		weeks=weeks+1
