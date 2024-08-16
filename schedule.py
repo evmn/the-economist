@@ -23,12 +23,9 @@ for i in schedule_day:
 	day = i.strftime('%d')
 	date = i.strftime('%Y%m%d')
 	issue = 8766+weeks
-	if ((int(month) != 12) or (int(day) < 25)) and not ((int(year) >= 2022) and (int(month) == 8) and (int(day) <= 7)):
-#	if (int(month) == 12) and (int(day) >= 24):
-#		weeks=weeks+0
-#	else:
-#		print(issue, date)
-#               print("./scrap.sh {0}-{1}-{2} {3}".format(year, month, day, issue))
-		print("http://audiocdn.economist.com/sites/default/files/AudioArchive/{0}/{2}/Issue_{1}_{2}_The_Economist_Full_edition.zip".format(year, issue, date))
-		#print("{2}|[{1}](http://audiocdn.economist.com/sites/default/files/AudioArchive/{0}/{2}/Issue_{1}_{2}_The_Economist_Full_edition.zip)".format(year, issue, date))
-		weeks=weeks+1
+	if ((int(month) != 12) or (int(day) < 25)):
+		if not ((int(year) >= 2022) and (int(year) <=2023) and (int(month) == 8) and (int(day) <= 7)):
+			#print("./scrap.sh {0}-{1}-{2} {3}".format(year, month, day, issue))
+			print("http://audiocdn.economist.com/sites/default/files/AudioArchive/{0}/{2}/Issue_{1}_{2}_The_Economist_Full_edition.zip".format(year, issue, date))
+			#print("{2}|[{1}](http://audiocdn.economist.com/sites/default/files/AudioArchive/{0}/{2}/Issue_{1}_{2}_The_Economist_Full_edition.zip)".format(year, issue, date))
+			weeks=weeks+1
